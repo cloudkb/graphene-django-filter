@@ -11,10 +11,10 @@ def get_fixed_settings() -> Dict[str, bool]:
     """Return fixed settings."""
     is_postgresql = connection.vendor == 'postgresql'
     has_trigram_extension = False
-    if is_postgresql:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT COUNT(*) FROM pg_available_extensions WHERE name='pg_trgm'")
-            has_trigram_extension = cursor.fetchone()[0] == 1
+    # if is_postgresql:
+    #     with connection.cursor() as cursor:
+    #         cursor.execute("SELECT COUNT(*) FROM pg_available_extensions WHERE name='pg_trgm'")
+    #         has_trigram_extension = cursor.fetchone()[0] == 1
     return {
         'IS_POSTGRESQL': is_postgresql,
         'HAS_TRIGRAM_EXTENSION': has_trigram_extension,
