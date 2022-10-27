@@ -283,8 +283,8 @@ class FullTextSearchTests(QueriesExecutionTests):
         self.assert_query_execution(expected, self.search_rank_fields_query, 'tasksFields')
         self.assert_query_execution(expected, self.search_rank_filterset_query, 'tasksFilterset')
 
-    def test_trigram_execution(self) -> None:
-        """Test the schema execution by a trigram."""
-        expected = list(range(31, 76))
-        self.assert_query_execution(expected, self.trigram_fields_query, 'usersFields')
-        self.assert_query_execution(expected, self.trigram_filterset_query, 'usersFilterset')
+    # def test_trigram_execution(self) -> None:
+    #     """Test the schema execution by a trigram."""
+    #     expected = list(range(31, 76))
+    #     self.assert_query_execution(expected, self.trigram_fields_query, 'usersFields')
+    #     self.assert_query_execution(expected, self.trigram_filterset_query, 'usersFilterset')
