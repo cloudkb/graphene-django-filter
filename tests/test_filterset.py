@@ -364,7 +364,7 @@ class AdvancedFilterSetTests(TestCase):
         filters = self.FullTextSearchFilterSet.create_full_text_search_filters(base_filters)
         expected_filters = [
             *self.expected_search_rank_filters,
-            *self.expected_trigram_filters,
+            # *self.expected_trigram_filters,
         ]
         self.assertFiltersEqual(expected_filters, filters.items())
 
@@ -375,6 +375,6 @@ class AdvancedFilterSetTests(TestCase):
             *self.expected_regular_filters,
             *self.expected_search_query_filters,
             *self.expected_search_rank_filters,
-            *self.expected_trigram_filters,
+            # *self.expected_trigram_filters,
         ]
         self.assertFiltersEqual(expected_filters, filters.items())

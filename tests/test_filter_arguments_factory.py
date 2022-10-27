@@ -38,15 +38,15 @@ class FilterArgumentsFactoryTests(TestCase):
             name='name', children=[
                 Node(name='exact'),
                 Node(name='contains'),
-                Node(
-                    name='trigram', children=[
-                        Node(name='exact'),
-                        Node(name='gt'),
-                        Node(name='gte'),
-                        Node(name='lt'),
-                        Node(name='lte'),
-                    ],
-                ),
+                # Node(
+                #     name='trigram', children=[
+                #         Node(name='exact'),
+                #         Node(name='gt'),
+                #         Node(name='gte'),
+                #         Node(name='lt'),
+                #         Node(name='lte'),
+                #     ],
+                # ),
             ],
         ),
         Node(name='created_at', children=[Node(name='gt')]),
@@ -208,16 +208,16 @@ class FilterArgumentsFactoryTests(TestCase):
         ).type
         self.assertEqual(search_rank_type, SearchRankFilterInputType)
 
-    def test_create_filter_input_subtype_with_trigram(self) -> None:
-        """Test the `create_filter_input_subtype` method with the trigram filter."""
-        filter_arguments_factory = FilterArgumentsFactory(TaskFilter, 'Task')
-        input_object_type = filter_arguments_factory.create_filter_input_subfield(
-            self.task_filter_trees_roots[0],
-            'Task',
-            'Name field',
-        ).type
-        trigram_type = getattr(input_object_type, 'trigram').type
-        self.assertEqual(trigram_type, TrigramFilterInputType)
+    # def test_create_filter_input_subtype_with_trigram(self) -> None:
+    #     """Test the `create_filter_input_subtype` method with the trigram filter."""
+    #     filter_arguments_factory = FilterArgumentsFactory(TaskFilter, 'Task')
+    #     input_object_type = filter_arguments_factory.create_filter_input_subfield(
+    #         self.task_filter_trees_roots[0],
+    #         'Task',
+    #         'Name field',
+    #     ).type
+    #     trigram_type = getattr(input_object_type, 'trigram').type
+    #     self.assertEqual(trigram_type, TrigramFilterInputType)
 
     def test_create_filter_input_type(self) -> None:
         """Test the `create_filter_input_type` method."""
